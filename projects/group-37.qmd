@@ -1,0 +1,12 @@
+---
+title: "Group 37"
+subtitle: "Spotifind"
+description: |
+  Group 37 Spotifind
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_37_Spotifind){.btn .btn-primary .btn-sm}
+image: ../group_data/37/sketch.png
+order: 37
+---
+
+This page displays in the project listing grid.

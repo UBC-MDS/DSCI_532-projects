@@ -1,0 +1,12 @@
+---
+title: "Group 29"
+subtitle: "healthy-diet"
+description: |
+  DSCI 532 - Group 29 | Healthy Diet Dashboard. A dashboard for exploring the cost of a healthy diet (PPP USD) across countries from 2017 to 2024.
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_29_healthy-diet){.btn .btn-primary .btn-sm}
+image: ../group_data/29/sketch.png
+order: 29
+---
+
+This page displays in the project listing grid.

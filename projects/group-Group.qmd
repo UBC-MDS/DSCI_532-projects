@@ -1,0 +1,12 @@
+---
+title: "Group Group"
+subtitle: "31_Chartify"
+description: |
+  A data dashboard analyzing Spotify audio features to help music producers and record labels identify patterns in successful pop songs and make data-driven production decisions.
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_Group_31_Chartify){.btn .btn-primary .btn-sm}
+image: ../group_data/Group/sketch.png
+order: 9000
+---
+
+This page displays in the project listing grid.

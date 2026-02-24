@@ -1,0 +1,10 @@
+---
+title: "Group 36"
+subtitle: "academic-performance"
+description: |
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_36_academic-performance){.btn .btn-primary .btn-sm}
+image: ../group_data/36/sketch.png
+order: 36
+---
+
+This page displays in the project listing grid.

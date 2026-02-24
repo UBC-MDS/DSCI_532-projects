@@ -1,0 +1,12 @@
+---
+title: "Group 7"
+subtitle: "vancouver-neighbourhood-safety"
+description: |
+  The Vancouver Neighbourhood Safety dashboard was developed to provide an interactive overview of crime patterns across different neighbourhoods in Vancouver, Canada.
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_7_vancouver-neighbourhood-safety){.btn .btn-primary .btn-sm}
+image: ../group_data/7/sketch.png
+order: 7
+---
+
+This page displays in the project listing grid.

@@ -1,0 +1,12 @@
+---
+title: "Group 17"
+subtitle: "chocosales-analyser"
+description: |
+  Group17 - ChocoSales Analyser is an interactive dashboard for exploring global chocolate sales data from 2022 to 2025.
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_17_chocosales-analyser){.btn .btn-primary .btn-sm}
+image: ../group_data/17/sketch.png
+order: 17
+---
+
+This page displays in the project listing grid.

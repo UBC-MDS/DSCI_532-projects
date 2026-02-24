@@ -1,0 +1,12 @@
+[project]
+name = "dsci-532-projects"
+version = "0.1.0"
+description = "Scripts for managing DSCI 532 project repositories"
+requires-python = ">=3.9"
+dependencies = [
+    "github3.py",
+    "python-dotenv",
+    "tqdm",
+    "pandas",
+    "requests",
+]

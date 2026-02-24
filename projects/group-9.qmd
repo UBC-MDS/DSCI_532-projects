@@ -1,0 +1,10 @@
+---
+title: "Group 9"
+subtitle: "burnout-checkup"
+description: |
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_9_burnout-checkup){.btn .btn-primary .btn-sm}
+image: ../group_data/9/sketch.png
+order: 9
+---
+
+This page displays in the project listing grid.

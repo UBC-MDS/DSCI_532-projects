@@ -1,0 +1,12 @@
+---
+title: "Group 28"
+subtitle: "amazon-sales"
+description: |
+  The Amazon Sales Dashboard provides an interactive overview of product sales revenue, trends, and performance across time, customer regions, and product categories.
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_28_amazon-sales){.btn .btn-primary .btn-sm}
+image: ../group_data/28/sketch.png
+order: 28
+---
+
+This page displays in the project listing grid.

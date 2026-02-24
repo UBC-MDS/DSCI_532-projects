@@ -1,0 +1,12 @@
+---
+title: "Group 26"
+subtitle: "TempTales"
+description: |
+  DSCI-532 Group 26-TempTales: This dashboard lets users explore global and country-level temperature trends over time while linking them to major historical events. Users can select a country, view seasonal and monthly patterns, track how events like world wars align with temperature changes, and see a world heatmap of regional temperatures
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_26_TempTales){.btn .btn-primary .btn-sm}
+image: ../group_data/26/sketch.png
+order: 26
+---
+
+This page displays in the project listing grid.

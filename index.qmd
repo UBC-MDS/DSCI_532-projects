@@ -1,0 +1,17 @@
+---
+title: "DSCI 532 Projects 2026"
+listing:
+  contents: projects
+  type: grid
+  grid-columns: 3
+  fields: [title, subtitle, image, description]
+  sort: "order asc"
+  filter-ui: false
+  sort-ui: false
+  page-size: 50
+  image-height: 250px
+---
+
+## Student Dashboard Projects
+
+Browse the data visualization dashboards created by MDS students in DSCI 532.

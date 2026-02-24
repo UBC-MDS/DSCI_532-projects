@@ -1,0 +1,12 @@
+---
+title: "Group 8"
+subtitle: "cocoaboard"
+description: |
+  Group 8 - CocoaBoard - A dashboard for exploring chocolate sales data by sales person, country, product, and time.
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_8_cocoaboard){.btn .btn-primary .btn-sm}
+image: ../group_data/8/sketch.png
+order: 8
+---
+
+This page displays in the project listing grid.

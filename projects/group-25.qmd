@@ -1,0 +1,12 @@
+---
+title: "Group 25"
+subtitle: "building_permits"
+description: |
+  Group 25 - Building Permits - Dashboard using Shiny about Building Permit data (starting from 2017) from The City of Vancouver (Canada) 
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_25_building_permits){.btn .btn-primary .btn-sm}
+image: https://via.placeholder.com/400x300?text=No+Sketch
+order: 25
+---
+
+This page displays in the project listing grid.

@@ -1,0 +1,12 @@
+---
+title: "Group 13"
+subtitle: "usa-crime-tracker"
+description: |
+  DSCI 532 Dashboard Project. The USA Crime Tracker Dashboard is an interactive Shiny application that enables users to explore historical crime trends across U.S. cities and states.
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_13_usa-crime-tracker){.btn .btn-primary .btn-sm}
+image: ../group_data/13/sketch.png
+order: 13
+---
+
+This page displays in the project listing grid.

@@ -1,0 +1,12 @@
+---
+title: "Group 24"
+subtitle: "NYC-squirrels"
+description: |
+  [Group-24] NYC Central Park Squirrel Behavior Dashboard
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_24_NYC-squirrels){.btn .btn-primary .btn-sm}
+image: ../group_data/24/sketch.png
+order: 24
+---
+
+This page displays in the project listing grid.

@@ -1,0 +1,12 @@
+---
+title: "Group 22"
+subtitle: "Vancouver-LC_Food-Programs"
+description: |
+  Group 22, Vancouver Food Programs Dashboard - An interactive dashboard exploring food programs across Vancouver.
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_22_Vancouver-LC_Food-Programs){.btn .btn-primary .btn-sm}
+image: ../group_data/22/sketch.png
+order: 22
+---
+
+This page displays in the project listing grid.

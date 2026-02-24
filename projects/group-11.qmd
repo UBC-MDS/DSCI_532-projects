@@ -1,0 +1,12 @@
+---
+title: "Group 11"
+subtitle: "LayoffLens"
+description: |
+  This is a Shiny Dashboard focused towards a layoff and hiring app.
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_11_LayoffLens){.btn .btn-primary .btn-sm}
+image: ../group_data/11/sketch.png
+order: 11
+---
+
+This page displays in the project listing grid.

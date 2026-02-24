@@ -1,0 +1,10 @@
+---
+title: "Group 1"
+subtitle: "car_price_analysis"
+description: |
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_1_car_price_analysis){.btn .btn-primary .btn-sm}
+image: https://via.placeholder.com/400x300?text=No+Sketch
+order: 1
+---
+
+This page displays in the project listing grid.

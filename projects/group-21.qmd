@@ -1,0 +1,12 @@
+---
+title: "Group 21"
+subtitle: "beetle-tracker"
+description: |
+  A dashboard for tracking Japanese Beetle observations across the world. Japanese Beetles are an invasive species that threaten ecosystems and agriculture. This dashboard allows scientists, researchers, and citizens to explore the spread and impact of Japanese Beetle sightings across regions and time.
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_21_beetle-tracker){.btn .btn-primary .btn-sm}
+image: https://via.placeholder.com/400x300?text=No+Sketch
+order: 21
+---
+
+This page displays in the project listing grid.

@@ -1,0 +1,12 @@
+---
+title: "Group 5"
+subtitle: "california_housing"
+description: |
+  Group 5 - California housing
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_5_california_housing){.btn .btn-primary .btn-sm}
+image: ../group_data/5/sketch.png
+order: 5
+---
+
+This page displays in the project listing grid.

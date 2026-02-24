@@ -1,0 +1,12 @@
+---
+title: "Group 33"
+subtitle: "fin-health"
+description: |
+  2025-26 DSCI-532 Group 33 - fin-health: An interactive dashboard that visualizes the financial health of publicly traded companies.
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_33_fin-health){.btn .btn-primary .btn-sm}
+image: ../group_data/33/sketch.png
+order: 33
+---
+
+This page displays in the project listing grid.

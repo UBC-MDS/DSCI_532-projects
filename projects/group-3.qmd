@@ -1,0 +1,12 @@
+---
+title: "Group 3"
+subtitle: "vancouver_park_dashboard"
+description: |
+  Group 3: Vancouver Park Dashboards
+  
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_3_vancouver_park_dashboard){.btn .btn-primary .btn-sm}
+image: ../group_data/3/sketch.png
+order: 3
+---
+
+This page displays in the project listing grid.

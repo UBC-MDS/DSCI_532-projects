@@ -1,0 +1,10 @@
+---
+title: "Group ilm"
+subtitle: "preview"
+description: |
+  [Repo](https://github.com/UBC-MDS/DSCI-532_2026_ilm_preview){.btn .btn-primary .btn-sm}
+image: https://via.placeholder.com/400x300?text=No+Sketch
+order: 9001
+---
+
+This page displays in the project listing grid.
