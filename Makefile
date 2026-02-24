@@ -1,4 +1,4 @@
-.PHONY: setup all
+.PHONY: setup all publish
 
 setup:
 	uv venv
@@ -9,3 +9,6 @@ all:
 	python scripts/02-parse_repos.py
 	python scripts/03-download_sketches.py
 	python scripts/04-generate_quarto_pages.py
+
+publish:
+	quarto publish gh-pages
