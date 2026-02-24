@@ -106,7 +106,9 @@ def download_all_sketches(csv_path: str, output_csv: str = None):
     sketch_paths = []
 
     print("\nDownloading sketch files...")
-    for idx, row in tqdm(df.iterrows(), total=len(df), desc="Processing repos"):
+    for idx, row in tqdm(
+        df.iterrows(), total=len(df), desc="Processing repos"
+    ):
         repo_full_name = row["full_name"]
         group_number = row["group_number"]
 
@@ -130,7 +132,9 @@ def download_all_sketches(csv_path: str, output_csv: str = None):
 
     # Print summary
     successful_downloads = sum(1 for path in sketch_paths if path)
-    print(f"\nSuccessfully downloaded {successful_downloads}/{len(df)} sketch files")
+    print(
+        f"\nSuccessfully downloaded {successful_downloads}/{len(df)} sketch files"
+    )
     print(f"Updated CSV saved to {output_path}")
 
     # Show sample of downloaded files

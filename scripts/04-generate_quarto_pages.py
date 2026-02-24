@@ -44,7 +44,7 @@ def create_project_page(
     description: str,
     sketch_path: str,
     projects_dir: Path,
-    sort_order: int
+    sort_order: int,
 ) -> None:
     """
     Create a Quarto markdown file for a project.
@@ -70,7 +70,9 @@ def create_project_page(
         image_path = "https://via.placeholder.com/400x300?text=No+Sketch"
 
     # Clean description
-    clean_description = description if description and pd.notna(description) else ""
+    clean_description = (
+        description if description and pd.notna(description) else ""
+    )
 
     # Build description
     desc_lines = []
@@ -138,10 +140,18 @@ def generate_all_pages(csv_path: str) -> None:
             non_numeric_groups.append((group_number, row))
             continue
 
-        project_name = row["project_name"] if pd.notna(row["project_name"]) else ""
+        project_name = (
+            row["project_name"] if pd.notna(row["project_name"]) else ""
+        )
         html_url = row["html_url"]
-        description = row["description"] if pd.notna(row["description"]) else ""
-        sketch_path = row["sketch_path"] if "sketch_path" in row and pd.notna(row["sketch_path"]) else ""
+        description = (
+            row["description"] if pd.notna(row["description"]) else ""
+        )
+        sketch_path = (
+            row["sketch_path"]
+            if "sketch_path" in row and pd.notna(row["sketch_path"])
+            else ""
+        )
 
         create_project_page(
             group_num_str,
@@ -150,7 +160,7 @@ def generate_all_pages(csv_path: str) -> None:
             description,
             sketch_path,
             projects_dir,
-            sort_order
+            sort_order,
         )
 
         pages_created += 1
@@ -163,10 +173,18 @@ def generate_all_pages(csv_path: str) -> None:
         # Assign high sort order (9000+) to put at end, with alphabetical ordering
         sort_order = 9000 + idx
 
-        project_name = row["project_name"] if pd.notna(row["project_name"]) else ""
+        project_name = (
+            row["project_name"] if pd.notna(row["project_name"]) else ""
+        )
         html_url = row["html_url"]
-        description = row["description"] if pd.notna(row["description"]) else ""
-        sketch_path = row["sketch_path"] if "sketch_path" in row and pd.notna(row["sketch_path"]) else ""
+        description = (
+            row["description"] if pd.notna(row["description"]) else ""
+        )
+        sketch_path = (
+            row["sketch_path"]
+            if "sketch_path" in row and pd.notna(row["sketch_path"])
+            else ""
+        )
 
         create_project_page(
             str(group_number),
@@ -175,13 +193,17 @@ def generate_all_pages(csv_path: str) -> None:
             description,
             sketch_path,
             projects_dir,
-            sort_order
+            sort_order,
         )
 
         pages_created += 1
-        print(f"Created page for non-numeric group '{group_number}' with sort order {sort_order}")
+        print(
+            f"Created page for non-numeric group '{group_number}' with sort order {sort_order}"
+        )
 
-    print(f"\nSuccessfully created {pages_created} project pages in {projects_dir}")
+    print(
+        f"\nSuccessfully created {pages_created} project pages in {projects_dir}"
+    )
     print("\nTo build the website, run:")
     print("  quarto render")
 

@@ -22,7 +22,9 @@ def get_output_path() -> Path:
         return Path.cwd() / "data"
 
 
-def parse_repo_name(repo_name: str, pattern: str = "DSCI-532_2026_") -> Tuple[str, str]:
+def parse_repo_name(
+    repo_name: str, pattern: str = "DSCI-532_2026_"
+) -> Tuple[str, str]:
     """
     Parse repository name to extract group number and project name.
 
@@ -37,7 +39,7 @@ def parse_repo_name(repo_name: str, pattern: str = "DSCI-532_2026_") -> Tuple[st
     if not repo_name.startswith(pattern):
         return "", ""
 
-    remainder = repo_name[len(pattern):]
+    remainder = repo_name[len(pattern) :]
 
     # Split by underscore
     parts = remainder.split("_", 1)
