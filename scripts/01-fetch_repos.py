@@ -13,30 +13,38 @@ def get_github_token() -> str:
     Get GitHub Personal Access Token.
 
     Checks in order:
-    1. Prompts user for input
+    1. Environment variables (GITHUB_TOKEN or GITHUB_PAT)
     2. .env file (GITHUB_TOKEN or GITHUB_PAT)
-    3. Environment variables (GITHUB_TOKEN or GITHUB_PAT)
+    3. Prompts user for input
 
     Returns:
         GitHub Personal Access Token
     """
-    # Prompt user first
-    token = getpass(
-        "Enter your GitHub Personal Access Token (press Enter to use env/file): "
-    ).strip()
+    # Check environment variables first (for CI/CD)
+    token = os.getenv("GITHUB_TOKEN", "").strip()
 
-    # If empty, load from .env file
+    # If not found, check GITHUB_PAT
+    if not token:
+        token = os.getenv("GITHUB_PAT", "").strip()
+
+    # If still not found, load from .env file
     if not token:
         load_dotenv()
         token = os.getenv("GITHUB_TOKEN", "").strip()
 
-    # If still empty, check for GITHUB_PAT
+    # If still not found, check GITHUB_PAT from .env
     if not token:
         token = os.getenv("GITHUB_PAT", "").strip()
 
+    # Finally, prompt user if still empty
+    if not token:
+        token = getpass(
+            "Enter your GitHub Personal Access Token (press Enter to skip): "
+        ).strip()
+
     if not token:
         raise ValueError(
-            "No GitHub token provided. Please provide a token via prompt, .env file, or environment variable."
+            "No GitHub token provided. Please provide a token via environment variable, .env file, or prompt."
         )
 
     return token
