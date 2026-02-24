@@ -1,0 +1,60 @@
+/* Custom styles for project cards */
+
+/* Use flexbox to reorder card elements */
+.quarto-listing-grid .quarto-grid-item.card {
+  height: 100%;
+  display: flex !important;
+  flex-direction: column;
+}
+
+/* Image styling */
+.quarto-listing-grid .card-img-top img {
+  height: 250px;
+  width: 100%;
+  object-fit: contain;
+  padding: 10px;
+  background-color: #f8f9fa;
+}
+
+/* Card body wrapper - make it also use flexbox and split its children */
+.quarto-listing-grid .quarto-grid-item.card > .card-body {
+  display: flex !important;
+  flex-direction: column;
+  /* Don't give it an order - its children will have their own orders */
+}
+
+/* Image wrapper - put it in position 3 */
+.quarto-listing-grid .quarto-grid-item.card > p.card-img-top {
+  order: 3 !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Title - order 1 (appears first) */
+.quarto-listing-grid .card-title {
+  order: 1 !important;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  padding: 1rem 1rem 0 1rem;
+}
+
+/* Subtitle - order 2 */
+.quarto-listing-grid .card-subtitle {
+  order: 2 !important;
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 0.75rem;
+  padding: 0 1rem 0.75rem 1rem;
+}
+
+/* Card text (description) - order 4 */
+.quarto-listing-grid .card-text {
+  order: 4 !important;
+  padding: 0 1rem 1rem 1rem;
+}
+
+/* Repo button styling */
+.card-text .btn {
+  margin-top: 0.75rem;
+}
