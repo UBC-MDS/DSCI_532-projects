@@ -66,8 +66,16 @@ def fetch_ubc_mds_repos(
     org_name = "UBC-MDS"
 
     # Create GitHub client with token
-    gh = github3.login(token=token)
-    org = gh.organization(org_name)
+    try:
+        gh = github3.login(token=token)
+        org = gh.organization(org_name)
+    except github3.exceptions.AuthenticationFailed:
+        print("\nAuthentication failed with provided token.")
+        token = getpass("Please manually paste your GitHub Personal Access Token: ").strip()
+        if not token:
+            raise ValueError("No token provided. Cannot authenticate with GitHub.")
+        gh = github3.login(token=token)
+        org = gh.organization(org_name)
 
     matching_repos = []
 
