@@ -84,34 +84,3 @@ quarto render
 ```
 
 The rendered site will be in the `_site/` directory.
-
-### Requirements
-
-Make sure you have [Quarto](https://quarto.org/docs/get-started/) installed:
-
-```bash
-# macOS
-brew install quarto
-
-# Or download from https://quarto.org/docs/get-started/
-```
-
-## Automated Deployment
-
-The repository includes a GitHub Action that automatically:
-1. Runs all Python scripts to fetch and process repository data
-2. Renders the Quarto website
-3. Deploys to GitHub Pages
-
-The workflow runs automatically on every push to the `main` branch, or can be triggered manually from the Actions tab.
-
-### Setting up GitHub Pages
-
-To enable GitHub Pages deployment:
-
-1. Go to your repository Settings → Pages
-2. Under "Build and deployment", set:
-   - Source: **GitHub Actions**
-3. The site will be published at `https://<username>.github.io/<repository-name>/`
-
-The workflow uses the default `GITHUB_TOKEN` for authentication, so no additional secrets are required.
