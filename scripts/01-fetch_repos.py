@@ -71,9 +71,13 @@ def fetch_ubc_mds_repos(
         org = gh.organization(org_name)
     except github3.exceptions.AuthenticationFailed:
         print("\nAuthentication failed with provided token.")
-        token = getpass("Please manually paste your GitHub Personal Access Token: ").strip()
+        token = getpass(
+            "Please manually paste your GitHub Personal Access Token: "
+        ).strip()
         if not token:
-            raise ValueError("No token provided. Cannot authenticate with GitHub.")
+            raise ValueError(
+                "No token provided. Cannot authenticate with GitHub."
+            )
         gh = github3.login(token=token)
         org = gh.organization(org_name)
 
@@ -94,7 +98,9 @@ def fetch_ubc_mds_repos(
                     "private": repo.private,
                 })
                 # Update progress bar description with match count
-                pbar.set_description(f"Scanning repos ({len(matching_repos)} matches)")
+                pbar.set_description(
+                    f"Scanning repos ({len(matching_repos)} matches)"
+                )
 
     return matching_repos
 
