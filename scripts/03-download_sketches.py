@@ -55,7 +55,7 @@ def download_sketch(
         Path to downloaded file if successful, None otherwise
     """
     # Create group directory
-    group_dir = group_data_dir / group_number
+    group_dir = group_data_dir / str(group_number)
     group_dir.mkdir(parents=True, exist_ok=True)
 
     # Construct raw GitHub URL (try main branch first)
