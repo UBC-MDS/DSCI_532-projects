@@ -66,17 +66,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-script-data-
 
-      - name: Run data fetching scripts
+      - name: Run all scripts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python scripts/01-fetch_repos.py
-          python scripts/02-parse_repos.py
-          python scripts/03-download_sketches.py
-
-      - name: Generate Quarto pages
-        run: |
-          python scripts/04-generate_quarto_pages.py
+        run: make all
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
