@@ -53,9 +53,9 @@ def process_gif(
         scale = max_duration_ms / total
         durations = [max(10, int(d * scale)) for d in durations]
 
-    # Quantize each frame to reduce palette size
+    # Quantize each frame to reduce palette size (FASTOCTREE supports RGBA)
     palette_frames = [
-        f.quantize(colors=max_colors, method=Image.Quantize.MEDIANCUT)
+        f.quantize(colors=max_colors, method=Image.Quantize.FASTOCTREE)
         for f in frames
     ]
 
