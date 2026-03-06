@@ -1,8 +1,38 @@
+import subprocess
+import tempfile
 import pandas as pd
 import requests
 from pathlib import Path
 from typing import Optional
 from tqdm import tqdm
+
+
+def mp4_to_gif(mp4_path: Path, gif_path: Path) -> bool:
+    """
+    Convert an MP4 file to GIF using ffmpeg with palette optimisation.
+
+    Returns True on success, False if ffmpeg is unavailable or fails.
+    """
+    try:
+        # Two-pass palettegen for best colour quality
+        filter_graph = (
+            "fps=10,scale=800:-1:flags=lanczos,"
+            "split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse"
+        )
+        result = subprocess.run(
+            [
+                "ffmpeg", "-y",
+                "-i", str(mp4_path),
+                "-vf", filter_graph,
+                "-loop", "0",
+                str(gif_path),
+            ],
+            capture_output=True,
+            timeout=120,
+        )
+        return result.returncode == 0
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return False
 
 
 def get_output_path() -> Path:
@@ -45,21 +75,35 @@ def download_demo(
         return str(output_path.relative_to(group_data_dir.parent))
 
     branches = ["main", "master"]
-    file_path = "img/demo.gif"
 
-    for branch in branches:
-        raw_url = f"https://raw.githubusercontent.com/{repo_full_name}/{branch}/{file_path}"
+    # Try GIF first, then MP4
+    for file_path in ["img/demo.gif", "img/demo.mp4"]:
+        for branch in branches:
+            raw_url = f"https://raw.githubusercontent.com/{repo_full_name}/{branch}/{file_path}"
 
-        try:
-            response = requests.get(raw_url, timeout=10)
-            if response.status_code == 200:
-                with open(output_path, "wb") as f:
-                    f.write(response.content)
+            try:
+                response = requests.get(raw_url, timeout=30)
+                if response.status_code != 200:
+                    continue
 
-                return str(output_path.relative_to(group_data_dir.parent))
+                if file_path.endswith(".gif"):
+                    with open(output_path, "wb") as f:
+                        f.write(response.content)
+                    return str(output_path.relative_to(group_data_dir.parent))
 
-        except requests.exceptions.RequestException:
-            continue
+                else:
+                    # Write MP4 to a temp file and convert to GIF
+                    with tempfile.NamedTemporaryFile(suffix=".mp4", delete=False) as tmp:
+                        tmp.write(response.content)
+                        tmp_path = Path(tmp.name)
+                    try:
+                        if mp4_to_gif(tmp_path, output_path):
+                            return str(output_path.relative_to(group_data_dir.parent))
+                    finally:
+                        tmp_path.unlink(missing_ok=True)
+
+            except requests.exceptions.RequestException:
+                continue
 
     return None
 
