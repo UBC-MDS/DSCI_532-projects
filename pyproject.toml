@@ -9,6 +9,7 @@ dependencies = [
     "tqdm",
     "pandas",
     "requests",
+    "pillow",
 ]
 
 [tool.setuptools]

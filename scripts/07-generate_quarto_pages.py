@@ -41,8 +41,10 @@ def create_project_page(
     group_number: str,
     project_name: str,
     html_url: str,
+    website_url: str,
     description: str,
     sketch_path: str,
+    demo_path: str,
     projects_dir: Path,
     sort_order: int,
 ) -> None:
@@ -53,8 +55,10 @@ def create_project_page(
         group_number: Group number
         project_name: Project name
         html_url: GitHub repository URL
+        website_url: Deployed app URL
         description: Project description
         sketch_path: Path to sketch image
+        demo_path: Path to demo gif
         projects_dir: Directory to save project pages
         sort_order: Numeric order for sorting (group number or high value for non-numeric)
     """
@@ -62,40 +66,46 @@ def create_project_page(
     filename = f"group-{group_number}.qmd"
     filepath = projects_dir / filename
 
-    # Use sketch path if available, otherwise use placeholder
-    if sketch_path and pd.notna(sketch_path):
-        # Make path relative from projects directory (go up one level)
+    # Use demo path if available, fall back to sketch, then placeholder
+    if demo_path and pd.notna(demo_path):
+        image_path = f"../{demo_path}"
+    elif sketch_path and pd.notna(sketch_path):
         image_path = f"../{sketch_path}"
     else:
-        image_path = "https://via.placeholder.com/400x300?text=No+Sketch"
+        image_path = "https://via.placeholder.com/400x300?text=No+Image"
 
     # Clean description
     clean_description = (
         description if description and pd.notna(description) else ""
     )
 
-    # Build description
-    desc_lines = []
-    if clean_description:
-        desc_lines.append(clean_description)
-        desc_lines.append("")
-    desc_lines.append(f"[Repo]({html_url}){{.btn .btn-primary .btn-sm}}")
+    # dashboard and repo as separate fields
+    dashboard_field = (
+        f'"{website_url}"' if website_url and pd.notna(website_url) else '""'
+    )
 
-    # Indent each line for YAML multiline
-    card_description = "\n  ".join(desc_lines)
+    # Build image sections for page body
+    body_lines = []
+    if demo_path and pd.notna(demo_path):
+        body_lines.append("## Demo\n")
+        body_lines.append(f"![Demo](../{demo_path})\n")
+    if sketch_path and pd.notna(sketch_path):
+        body_lines.append("## Sketch\n")
+        body_lines.append(f"![Sketch](../{sketch_path})\n")
+    body = "\n".join(body_lines) if body_lines else ""
 
     # Create YAML frontmatter and minimal content
     content = f"""---
 title: "Group {group_number}"
 subtitle: "{project_name}"
-description: |
-  {card_description}
+description: "{clean_description}"
+repo: "{html_url}"
+dashboard: {dashboard_field}
 image: {image_path}
 order: {sort_order}
 ---
 
-This page displays in the project listing grid.
-"""
+{body}"""
 
     # Write to file
     with open(filepath, "w", encoding="utf-8") as f:
@@ -144,6 +154,11 @@ def generate_all_pages(csv_path: str) -> None:
             row["project_name"] if pd.notna(row["project_name"]) else ""
         )
         html_url = row["html_url"]
+        website_url = (
+            row["website_url"]
+            if "website_url" in row and pd.notna(row["website_url"])
+            else ""
+        )
         description = (
             row["description"] if pd.notna(row["description"]) else ""
         )
@@ -152,13 +167,20 @@ def generate_all_pages(csv_path: str) -> None:
             if "sketch_path" in row and pd.notna(row["sketch_path"])
             else ""
         )
+        demo_path = (
+            row["demo_path"]
+            if "demo_path" in row and pd.notna(row["demo_path"])
+            else ""
+        )
 
         create_project_page(
             group_num_str,
             project_name,
             html_url,
+            website_url,
             description,
             sketch_path,
+            demo_path,
             projects_dir,
             sort_order,
         )
@@ -177,6 +199,11 @@ def generate_all_pages(csv_path: str) -> None:
             row["project_name"] if pd.notna(row["project_name"]) else ""
         )
         html_url = row["html_url"]
+        website_url = (
+            row["website_url"]
+            if "website_url" in row and pd.notna(row["website_url"])
+            else ""
+        )
         description = (
             row["description"] if pd.notna(row["description"]) else ""
         )
@@ -185,13 +212,20 @@ def generate_all_pages(csv_path: str) -> None:
             if "sketch_path" in row and pd.notna(row["sketch_path"])
             else ""
         )
+        demo_path = (
+            row["demo_path"]
+            if "demo_path" in row and pd.notna(row["demo_path"])
+            else ""
+        )
 
         create_project_page(
             str(group_number),
             project_name,
             html_url,
+            website_url,
             description,
             sketch_path,
+            demo_path,
             projects_dir,
             sort_order,
         )
@@ -216,7 +250,7 @@ def main():
     if not input_file.exists():
         raise FileNotFoundError(
             f"Input file not found: {input_file}\n"
-            "Please run 01-fetch_repos.py, 02-parse_repos.py, and 03-download_sketches.py first."
+            "Please run 01- through 05- scripts first."
         )
 
     print("Generating Quarto project pages...")
