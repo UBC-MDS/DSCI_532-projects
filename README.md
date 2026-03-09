@@ -44,22 +44,6 @@ To create a token, visit: https://github.com/settings/tokens
 The project includes several scripts that should be run in sequence:
 
 ```bash
-# 1. Fetch repository data from GitHub
-python scripts/01-fetch_repos.py
-
-# 2. Parse repository information
-python scripts/02-parse_repos.py
-
-# 3. Download project sketches
-python scripts/03-download_sketches.py
-
-# 4. Generate Quarto pages
-python scripts/04-generate_quarto_pages.py
-```
-
-Or run all scripts in sequence using the Makefile:
-
-```bash
 make all
 ```
 
